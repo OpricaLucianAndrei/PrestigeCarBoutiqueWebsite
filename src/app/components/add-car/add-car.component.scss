@@ -1,0 +1,80 @@
+.container-fluid{
+    font-family: 'Caviar Dreams';
+    letter-spacing: 2px;
+}
+form {
+  font-size: 0.7rem;
+
+}
+
+input, select{
+  height: 25px;
+  font-size: 0.7rem;
+}
+
+.form-check-input{
+  height: 0.7rem;
+}
+
+.btn {
+    font-size: 0.7rem;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: black;
+    transition: 0.5s ease;
+  }
+  
+  .btn:hover {
+    color: white;
+    transition-delay: 0.5s;
+  }
+  
+  .btn:hover::before {
+    width: 100%;
+  }
+  
+  .btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: black;
+    transition: 0.4s ease;
+    z-index: -1;
+  }
+  
+  .btn:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+  }
+  .btnInventory{
+    color: rgb(255, 0, 0);
+}
+
+.btnInventory::before{
+    background-color: rgb(255, 0, 0);
+}
+.btnInventory:hover{
+    color: rgb(255, 0, 0);
+}
+.btnInventory::after{
+    background-color: rgb(255, 0, 0);
+}

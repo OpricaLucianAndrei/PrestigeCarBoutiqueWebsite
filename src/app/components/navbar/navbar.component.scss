@@ -1,0 +1,146 @@
+nav{
+    width: 100vw;
+    background-color: white;
+    font-family: 'Caviar Dreams';
+    letter-spacing: 2px;
+}
+
+.overlap-group {
+    position: relative;
+    width: 167px;
+    height: 34px;
+    background-color: #14191c;
+    border-radius: 1000px;
+}
+
+.text-wrapper {
+    position: absolute;
+    top: 8px;
+    left: 39px;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 0.7rem;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.mask-group-wrapper {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 5px;
+    left: 7px;
+    background-color: #000000;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+ .mask-group {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 6px;
+    left: 5px;
+}
+
+#carup {
+    background-color: #000000;
+}
+
+.navbar-dark .navbar-nav .nav-item .nav-link {
+    font-size: 0.7rem;
+}
+
+
+.top-bar {
+    border-bottom: 1px solid #ffffff;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    max-height: 400px;
+    /* overflow-x: scroll; */
+    overflow-y: scroll;
+}
+
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    border-bottom: 2px solid;
+    color: #ffffff;
+
+}
+
+
+
+
+
+
+
+
+
+a{
+    font-size: larger;
+    font-weight: bold;
+}
+.nav-item .btn {
+    font-size: 0.7rem;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.nav-item .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: black;
+    transition: 0.5s ease;
+}
+
+.nav-item .btn:hover {
+    color: rgb(0, 0, 0);
+    transition-delay: 0.5s;
+}
+
+.nav-item .btn:hover::before {
+    width: 100%;
+}
+
+.nav-item .btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: black;
+    transition: 0.4s ease;
+    z-index: -1;
+}
+
+.nav-item .btn:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+}
+
+.nav-item .btnInventory{
+    color: rgb(255, 0, 0);
+}
+
+.nav-item .btnInventory::before{
+    background-color: rgb(255, 0, 0);
+}
+.nav-item .btnInventory:hover{
+    color: rgb(255, 0, 0);
+}
+.nav-item .btnInventory::after{
+    background-color: rgb(255, 0, 0);
+}

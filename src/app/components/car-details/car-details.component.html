@@ -1,0 +1,263 @@
+<section class="container-fluid bg-white p-5">
+    <div class="row w-100 d-flex justify-content-start mb-4">
+        <h2 class="display-6">{{auto.marca}} {{auto.modello}}</h2>
+        <p>{{auto.descrizione}}</p>
+    </div>
+    <div class="row w-100 d-flex">
+        <div id="contenitoreImmagini" class="col-6">
+            <div class="row w-100">
+                <div class="col-12 mb-3">
+                    <h3>{{auto.immagini[0].opzioneColore}}</h3>
+                </div>
+                <div class="col-12 mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-12 mb-3">
+                    <h3>{{auto.immagini[0].opzioneColore}}</h3>
+                </div>
+                <div class="col-12 mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-12 mb-3">
+                    <h3>{{auto.immagini[0].opzioneColore}}</h3>
+                </div>
+                <div class="col-12 mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+                <div class="col-4  mb-3">
+                    <img src="{{auto.immagini[0].url}}" alt="immagine auto">
+                </div>
+            </div>
+
+        </div>
+        <div id="schedaTecnica" class="col-6 ps-4 border-start border-1 border-black">
+            <div class="col-12 mb-3">
+                <h3>Scheda Tecnica:</h3>
+            </div>
+            <div class="row w-100">
+                <div class="col-12 my-2">
+                    <p>Anno: {{auto.anno}}</p>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <p>Chilometraggio: {{auto.chilometraggio}}</p>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Motore:</p>
+                            <ul>
+                                <li>Tipo: {{auto.specifiche.performance.motore.tipo}}</li>
+                                <li>Cilindrata: {{auto.specifiche.performance.motore.cilindrata}}</li>
+                                <li>Cavalli: {{auto.specifiche.performance.motore.cavalli}}</li>
+                                <li>Coppia: {{auto.specifiche.performance.motore.coppia}}</li>
+                                <li>Trasmissione: {{auto.specifiche.performance.motore.trasmissione}}</li>
+                                <li>Trazione: {{auto.specifiche.performance.motore.trazione}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <p>Top Speed: {{auto.specifiche.performance.topSpeed}}</p>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <p>Accelerazione da 0 a 100Km/h: {{auto.specifiche.performance.accelerazione0a100Kmh}}</p>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Consumo carburante:</p>
+                            <ul>
+                                <!-- <li>Tipo: {{auto.specifiche.performance.consumoCarburante.citta}}</li> -->
+                                <li>Autostrada: {{auto.specifiche.performance.consumoCarburante.autostrada}}</li>
+                                <li>Combinato: {{auto.specifiche.performance.consumoCarburante.combinato}}</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Dimensioni:</p>
+                            <ul>
+                                <li>Larghezza: {{auto.specifiche.dimensioni.larghezza}}</li>
+                                <li>Lunghezza: {{auto.specifiche.dimensioni.lunghezza}}</li>
+                                <li>Altezza: {{auto.specifiche.dimensioni.altezza}}</li>
+                                <li>Passo: {{auto.specifiche.dimensioni.passo}}</li>
+                                <li>Capacità serbatoio: {{auto.specifiche.dimensioni.capacitaSerbatoio}}</li>
+                                <li>Peso a vuoto: {{auto.specifiche.dimensioni.pesoAVuoto}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Interni:</p>
+                            <ul>
+                                <li>Posti: {{auto.specifiche.interni.posti}}</li>
+                                <li>Tappezzeria: {{auto.specifiche.interni.tappezzeria}}</li>
+                                <li>Caratteristiche:
+                                    <ul>
+                                        <li>{{auto.specifiche.interni.caratteristiche[0]}}</li>
+                                        <li>{{auto.specifiche.interni.caratteristiche[1]}}</li>
+                                        <li>{{auto.specifiche.interni.caratteristiche[2]}}</li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Esterni:</p>
+                            <ul>
+                                <li>Opzioni colore:
+                                    <ul>
+                                        <li>{{auto.specifiche.esterni.opzioniColori[0]}}</li>
+                                        <li>{{auto.specifiche.esterni.opzioniColori[1]}}</li>
+                                        <li>{{auto.specifiche.esterni.opzioniColori[2]}}</li>
+                                    </ul>
+                                </li>
+                                <li>Caratteristiche:
+                                    <ul>
+                                        <li>{{auto.specifiche.esterni.caratteristiche[0]}}</li>
+                                        <li>{{auto.specifiche.esterni.caratteristiche[1]}}</li>
+                                        <li>{{auto.specifiche.esterni.caratteristiche[2]}}</li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-2">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Sicurezza:</p>
+                            <ul>
+                                <li>Assistenza alla guida:
+                                    <ul>
+                                        <li>{{auto.specifiche.sicurezza.assistenzaAllaGuida[0]}}</li>
+                                        <li>{{auto.specifiche.sicurezza.assistenzaAllaGuida[1]}}</li>
+
+                                    </ul>
+                                </li>
+                                <li>Altro:
+                                    <ul>
+                                        <li>{{auto.specifiche.sicurezza.sicurezza[0]}}</li>
+                                        <li>{{auto.specifiche.sicurezza.sicurezza[1]}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-3">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Optional features:</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <h6>Nome</h6>
+                                        </td>
+                                        <td>
+                                            <h6>Prezzo</h6>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{auto.optionalFeatures[0].nome}}</td>
+                                        <td>{{auto.optionalFeatures[0].prezzo}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{auto.optionalFeatures[1].nome}}</td>
+                                        <td>{{auto.optionalFeatures[1].prezzo}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{auto.optionalFeatures[2].nome}}</td>
+                                        <td>{{auto.optionalFeatures[2].prezzo}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-3">
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <p>Prezzo:</p>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Prezzo base</td>
+                                        <td>{{auto.prezzo.prezzoBase}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prezzo optional dell'auto</td>
+                                        <td>{{auto.prezzo.optional}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tasse</td>
+                                        <td>{{auto.prezzo.tasse}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prezzo totale</td>
+                                        <td>{{auto.prezzo.prezzoTotale}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-12 my-2 p-5">  <!--(click)="creaSessionePagamento(auto.prezzo.prezzoTotale, userEmail)"-->
+                    <button class="btn text-black" [routerLink]="['/pagamento', auto.id]" routerLinkActive="active">Acquista Ora</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

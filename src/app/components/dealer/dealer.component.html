@@ -1,0 +1,177 @@
+<div class="container-fluid bg-black p-0 m-0">
+    <div class="row w-100 d-flex align-items-center justify-content-between bg-white pb-5" id="top">
+        <div class="col-12 col-md-7 p-5">
+            <h2 class="display-6 py-4 mb-2">Benvenuti alla <br><span class="display-4 fw-semibold">Prestige Car
+                    Boutique</span></h2>
+            <p>Benvenuti alla Prestige Car Boutique, dove l'eleganza incontra l'innovazione. Situato nel cuore della
+                città, il nostro showroom rappresenta un'oasi per gli appassionati delle auto di lusso. Offriamo
+                un'esperienza su misura, combinando l'eccellenza del design automobilistico con un servizio clienti
+                impeccabile.</p>
+        </div>
+        <div class="col-12 col-md-5 d-flex justify-content-center p-0 bg-black">
+            <img src="../../../assets/images/2.png" alt="logo PCB" id="logoPCB">
+        </div>
+    </div>
+    <div class="row w-100 d-flex align-items-center justify-content-around bg-white p-5">
+        <div class="col-10 col-md-2 p-4 border border-1 d-flex align-items-center shadow-box" style="height: 35vh;">
+            <a [routerLink]="['/dealer']" fragment="inventarioSection"
+                class="w-100 h-100  d-flex align-items-center justify-content-around flex-column">
+                <h6 class="mb-2 fw-semibold">La Nostra Collezione Esclusiva</h6>
+                <p>Scoprite la nostra selezione di auto di lusso e performance.</p>
+            </a>
+        </div>
+        <div class="col-10 col-md-2 p-4 border border-1 d-flex align-items-center shadow-box" style="height: 35vh;">
+            <a [routerLink]="['/dealer']" fragment="serviziSection"
+                class="w-100 h-100  d-flex align-items-center justify-content-around flex-column">
+                <h6 class="mb-2 fw-semibold">Servizio di Prenotazione Test Drive</h6>
+                <p>Prenotate il vostro test drive per un'esperienza su misura.</p>
+            </a>
+        </div>
+        <div class="col-10 col-md-2 p-4 border border-1 d-flex align-items-center shadow-box" style="height: 35vh;">
+            <a [routerLink]="['/dealer']" fragment="serviziSection"
+                class="w-100 h-100  d-flex align-items-center justify-content-around flex-column">
+                <h6 class="mb-2 fw-semibold">Valutazione Professionale del Vostro Usato</h6>
+                <p>Ottenete una valutazione trasparente e onesta del vostro usato.</p>
+            </a>
+        </div>
+        <div class="col-10 col-md-2 p-4 border border-1 d-flex align-items-center shadow-box" style="height: 35vh;">
+            <a [routerLink]="['/dealer']" fragment="dealer"
+                class="w-100 h-100  d-flex align-items-center justify-content-around flex-column">
+                <h6 class="mb-2 fw-semibold">Un Ambiente Esclusivo</h6>
+                <p>Visitate il nostro showroom per un esperienza lussuosa.</p>
+            </a>
+        </div>
+    </div>
+    <div class="row w-100 d-flex align-items-center justify-content-around bg-white pt-3 position-relative pb-5"
+        id="inventarioSection">
+        <img src="../../../assets/images/inventario.png" alt="flotta auto" class="p-0 mb-5">
+        <div class="w-50 bg-white p-3 text-center" id="inventario">
+            <h2 class="fs-2 p-2">La Nostra Collezione Esclusiva</h2>
+            <p class="p-2 ">Alla Prestige Car Boutique, vantiamo una collezione esclusiva di auto di alta gamma. Ogni
+                veicolo nel
+                nostro showroom è selezionato con cura per garantire ai nostri clienti solo il meglio del lusso e della
+                performance. Che si tratti di una sportiva mozzafiato o di una berlina di classe, troverete il perfetto
+                connubio tra potenza e raffinatezza.</p>
+            <a class="btn text-black" [routerLink]="['/inventory']" routerLinkActive="active">Vedi Inventario</a>
+        </div>
+
+    </div>
+    <div class="row w-100 d-flex align-items-center justify-content-around bg-white pt-5">
+        <div class="col-12 bg-white p-5">
+            <div class="mb-3">
+                <p class="w-50 mx-auto text-center mb-5">Presso Prestige Car Boutique, non ci limitiamo a vendere
+                    semplicemente automobili
+                    di lusso; incarniamo uno stile di vita sofisticato e un impegno per l'eccellenza. Ogni vettura nel
+                    nostro showroom è stata selezionata con cura per garantire qualità, prestazioni e un design senza
+                    compromessi.</p>
+            </div>
+
+            <div class="video-container d-flex justify-content-center align-items-center mb-5">
+                <video width="100%" autoplay muted id="myVideo" loop>
+                    <source src="../../../assets/videos/video1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="mb-5">
+                <p class="w-50 mx-auto text-center mb-3"> Collaboriamo con i marchi più rinomati del settore per
+                    offrire
+                    ai nostri clienti
+                    un'esperienza di guida straordinaria e un servizio personalizzato che supera ogni aspettativa.</p>
+            </div>
+            <div class="mb-5">
+                <app-carousel></app-carousel>
+            </div>
+
+        </div>
+    </div>
+    <div class="row w-100 d-flex align-items-center justify-content-around bg-black p-0">
+        <div class="col-5 p-0 d-flex justify-content-center align-items-center">
+            <img src="https://i.pinimg.com/474x/eb/72/ec/eb72ec5388f609b921ae9cce67e843af.jpg" alt="foto squadra"
+                style="width: 100%;">
+        </div>
+        <div class="col-7 d-flex align-items-center">
+            <p class="p-4 mb-3 text-white">La nostra missione è semplice: rendere ogni visita a Prestige Car
+                Boutique un'esperienza indimenticabile. Con una squadra dedicata di esperti del settore, siamo qui per
+                guidarti attraverso ogni fase dell'acquisto, offrendo consulenza professionale e assistenza in ogni
+                dettaglio. Oltre alla vendita di auto, forniamo anche servizi di manutenzione e personalizzazione per
+                assicurarci che la tua vettura mantenga sempre la sua bellezza e le sue prestazioni ottimali nel tempo.
+            </p>
+
+        </div>
+
+    </div>
+    <div class="row w-100 d-flex align-items-center justify-content-around bg-white p-0 py-5">
+
+        <div class="col-12 p-5 d-flex flex-column align-items-center position-relative">
+            <h2 class="p-3 fw-semibold">Unisciti a noi per vivere un'esperienza esclusiva!</h2>
+            <h5 class="p-3">Iscriviti ora per accedere a vantaggi riservati.</h5>
+            <div class="w-50 mx-auto d-flex justify-content-around p-4">
+                <a class="btn text-black" [routerLink]="['/signup']" routerLinkActive="active">Registrati</a>
+                <a class="btn text-black" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row w-100 d-flex align-items-center justify-content-around bg-black p-5" id="serviziSection">
+        <div class="col-12 p-3 d-flex justify-content-center align-items-center flex-column">
+            <div class="w-50">
+                <h3 class="text-white text-center fw-semibold mb-3">Introduzione ai Nostri Servizi Esclusivi</h3>
+                <p class="text-white text-center">Alla Prestige Car Boutique, ci impegniamo a offrire ai nostri clienti
+                    un servizio
+                    di eccellenza che si
+                    distingue per la sua qualità e attenzione ai dettagli. Siamo orgogliosi di presentarvi due dei
+                    nostri
+                    servizi principali, progettati per soddisfare al meglio le vostre esigenze e offrire un'esperienza
+                    automobilistica di lusso senza paragoni.</p>
+            </div>
+        </div>
+        <div class="col-12 p-5 d-flex justify-content-center align-items-center">
+            <div class="w-50 d-flex justify-content-center align-items-center flex-column">
+                <div class="w-50">
+                    <img src="../../../assets/images/calendar-660670_1280.jpg" alt="calendario" style="width: 100%;">
+                </div>
+                <h6 class="text-white w-50 text-center py-4">Servizio di Prenotazione Test Drive</h6>
+                <p class="text-white w-50 text-center testoServizi">Siamo lieti di offrire ai nostri clienti il servizio
+                    di prenotazione test drive. Vivete l'emozione di
+                    guidare l'auto dei vostri sogni su strada aperta, sperimentando direttamente il comfort e le
+                    prestazioni senza compromessi. Il nostro team sarà al vostro fianco per assicurarvi un'esperienza
+                    indimenticabile e completamente personalizzata.</p>
+            </div>
+            <div class="w-50 d-flex justify-content-center align-items-center flex-column">
+                <div class="w-50">
+                    <img src="../../../assets/images/bmw-2964072_1280.jpg" alt="bmw" style="width: 100%;">
+                </div>
+                <h6 class="text-white w-50 text-center py-4">Valutazione Professionale del Vostro Usato</h6>
+                <p class="text-white w-50 text-center testoServizi">Alla Prestige Car Boutique, comprendiamo
+                    l'importanza di una valutazione accurata del vostro veicolo usato. Il nostro team di esperti vi
+                    offrirà una valutazione professionale, trasparente e onesta, assicurandovi il massimo valore per il
+                    vostro attuale veicolo. Siamo qui per guidarvi attraverso ogni fase del processo con la massima
+                    professionalità.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row w-100 d-flex align-items-center justify-content-around bg-white p-5" id="dealer">
+        <div class="col-12 p-5 d-flex justify-content-center align-items-center flex-column">
+            <h3 class="p-4">Un Ambiente Esclusivo</h3>
+            <div class="w-75 my-3">
+                <img src="../../../assets/images/salone.png" alt="concessionaria" style="width: 100%;">
+            </div>
+            <p class="p-5 three-columns">Il nostro showroom è progettato per riflettere l'essenza del lusso. Ogni
+                dettaglio, dagli arredi eleganti alla selezione musicale sofisticata, è pensato per creare un'atmosfera
+                di esclusività e comfort. Venite a scoprire un luogo dove ogni visita si trasforma in un’esperienza
+                straordinaria. La nostra attenzione ai particolari è evidente in ogni angolo del nostro spazio
+                espositivo, dove l'arte dell'automobile si combina con un ambiente raffinato e accogliente. I materiali
+                di alta qualità, le finiture impeccabili e l'illuminazione studiata per esaltare le linee sinuose delle
+                auto creano un'armonia perfetta che vi trasporterà in un mondo di pura eleganza. Ogni veicolo è
+                posizionato con cura per permettervi di apprezzare appieno la sua bellezza e le sue caratteristiche
+                uniche. Il nostro team, esperto e appassionato, è sempre a disposizione per guidarvi nella scoperta
+                delle ultime novità e delle offerte esclusive, garantendo un servizio personalizzato e attento. Vi
+                invitiamo a vivere un'esperienza unica, dove l'eccellenza e il lusso sono di casa.</p>
+
+        </div>
+        <div class="text-center p-5">
+            <a [routerLink]="['/dealer']" fragment="top" class="btn p-3" id="arrow"><p>Back to top</p><i class="bi bi-arrow-up text-black p-3"></i></a>
+        </div>
+    </div>
+
+
+</div>

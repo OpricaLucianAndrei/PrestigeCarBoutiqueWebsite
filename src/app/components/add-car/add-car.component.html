@@ -1,0 +1,378 @@
+<div class="container-fluid bg-white mb-5 py-5 px-0 mx-auto">
+    <div class="row w-100 p-3 d-flex justify-content-center align-items-center">
+        <div class="col-12 text-center">
+            <img src="../../../assets/images/1White.png" alt="logo" style="width: 5%;">
+        </div>
+        <div class="col-12 text-center">
+            <h2 class="p-5 mb-2 display-6 fw-semibold text-black">Aggiungi Auto</h2>
+        </div>
+    </div>
+    <div class="row w-100 p-0 d-flex justify-content-center">
+        <form [formGroup]="autoForm" (ngSubmit)="submitForm()" class="p-0 col-12">
+            <div class="row w-100 d-flex justify-content-around p-0">
+                <div class="col-5 p-0 d-flex flex-column bg-white border-end border-1 border-black mx-auto">
+                    <div class="p-5 bg-white border border-1 border-black m-4">
+                        <h3 class="mb-4">Dati principali dell'auto</h3>
+                        <div class="mb-3">
+                            <label for="marca" class="form-label ">Marca</label>
+                            <input type="text" class="form-control" id="marca" formControlName="marca" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modello" class="form-label ">Modello</label>
+                            <input type="text" class="form-control" id="modello" formControlName="modello" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="anno" class="form-label ">Anno</label>
+                            <input type="number" class="form-control" id="anno" formControlName="anno" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="chilometraggio" class="form-label ">Chilometraggio</label>
+                            <input type="number" class="form-control" id="chilometraggio"
+                                formControlName="chilometraggio" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descrizione" class="form-label ">Descrizione</label>
+                            <textarea class="form-control" id="descrizione" formControlName="descrizione"
+                                required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="statoVeicolo" class="form-label ">Stato Veicolo</label>
+                            <select class="form-select" id="statoVeicolo" formControlName="statoVeicolo" required>
+                                <option value="NUOVO">Nuovo</option>
+                                <option value="USATO">Usato</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-white border border-1 border-black m-4">
+                        <!-- Optional Features -->
+                        <h4 class="mb-4">Optional Features</h4>
+                        <div formArrayName="optionalFeatures">
+                            <div *ngFor="let optionalFeature of optionalFeatures.controls; let i = index"
+                                [formGroupName]="i" class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="optionalFeatureNome{{i}}" class="form-label">Nome Optional</label>
+                                        <input type="text" class="form-control" [id]="'optionalFeatureNome' + i"
+                                            formControlName="nome">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="optionalFeaturePrezzo{{i}}" class="form-label">Prezzo Optional
+                                            (€)</label>
+                                        <input type="number" class="form-control" [id]="'optionalFeaturePrezzo' + i"
+                                            formControlName="prezzo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn text-black" (click)="addOptionalFeature()">Aggiungi
+                            Optional</button>
+                    </div>
+                    <div class="p-5 bg-white border border-1 border-black m-4">
+                        <!-- Immagini -->
+                        <h4 class="mb-4">Immagini</h4>
+                        <div formArrayName="immagini">
+                            <div *ngFor="let immagine of immagini.controls; let i = index" [formGroupName]="i"
+                                class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="opzioneColore{{i}}" class="form-label">Opzione Colore</label>
+                                        <input type="text" class="form-control" [id]="'opzioneColore' + i"
+                                            formControlName="opzioneColore">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="url{{i}}" class="form-label">URL Immagine</label>
+                                        <div formArrayName="url">
+                                            <div *ngFor="let urlCtrl of getUrls(i).controls; let j = index">
+                                                <input type="text" class="form-control mb-2" [id]="'url' + i + '_' + j"
+                                                    [formControlName]="j">
+                                            </div>
+                                            <button type="button" class="btn text-black"
+                                                (click)="aggiungiUrl(i)">Aggiungi
+                                                URL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn text-black " (click)="addImmagine()">Aggiungi Immagine</button>
+                    </div>
+                    <div class="p-5 bg-white border border-1 border-black m-4">
+                        <!-- Prezzo -->
+                        <div formGroupName="prezzo">
+                            <h4 class="mb-4">Prezzo</h4>
+                            <div class="mb-5 mx-auto">
+                                <label for="prezzoBase" class="form-label">Prezzo Base (€)</label>
+                                <input type="number" class="form-control" id="prezzoBase" formControlName="prezzoBase"
+                                    required>
+                            </div>
+                            <div class="mb-5 mx-auto">
+                                <label for="tasse" class="form-label">Tasse (€)</label>
+                                <input type="number" class="form-control" id="tasse" formControlName="tasse" required>
+                            </div>
+                            <div class="mb-5 mx-auto">
+                                <label for="optional" class="form-label">Optional (€)</label>
+                                <input type="number" class="form-control" id="optional" formControlName="optional"
+                                    required>
+                            </div>
+                            <div class="mb-5 mx-auto">
+                                <label for="prezzoTotale" class="form-label">Prezzo Totale (€)</label>
+                                <input type="number" class="form-control" id="prezzoTotale"
+                                    formControlName="prezzoTotale" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 p-0 border-1 border-black" formGroupName="specifiche">
+                    <h3 class="p-4 pb-0">Specifiche</h3>
+                    <div class="row w-100">
+                        <div class="col-12">
+                            <div formGroupName="performance" class="p-3 border border-1 border-black m-4">
+                                <h4 class="mb-3">Performance</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="topSpeed" class="form-label">Top Speed (km/h)</label>
+                                        <input type="text" class="form-control" id="topSpeed"
+                                            formControlName="topSpeed">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="accelerazione0a100Kmh" class="form-label">Accelerazione 0-100 km/h
+                                            (s)</label>
+                                        <input type="text" class="form-control" id="accelerazione0a100Kmh"
+                                            formControlName="accelerazione0a100Kmh">
+                                    </div>
+                                </div>
+                                <div formGroupName="motore">
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <label for="motoreTipo" class="form-label">Tipo Motore</label>
+                                            <input type="text" class="form-control" id="motoreTipo"
+                                                formControlName="tipo">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="motoreCilindrata" class="form-label">Cilindrata Motore
+                                                (cc)</label>
+                                            <input type="text" class="form-control" id="motoreCilindrata"
+                                                formControlName="cilindrata">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <label for="cavalli" class="form-label">Potenza (CV)</label>
+                                            <input type="number" class="form-control" id="cavalli"
+                                                formControlName="cavalli">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="coppia" class="form-label">Coppia (Nm)</label>
+                                            <input type="text" class="form-control" id="coppia"
+                                                formControlName="coppia">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="trasmissione" class="form-label">Trasmissione</label>
+                                            <input type="text" class="form-control" id="trasmissione"
+                                                formControlName="trasmissione">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="trazione" class="form-label">Trazione</label>
+                                            <input type="text" class="form-control" id="trazione"
+                                                formControlName="trazione">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Consumo Carburante -->
+                                <div formGroupName="consumoCarburante">
+                                    <h5 class="p-3 px-0 mt-3">Consumo Carburante</h5>
+                                    <div class="mb-2 mx-auto">
+                                        <label for="citta" class="form-label">Città</label>
+                                        <input type="text" class="form-control" id="citta" formControlName="città">
+                                    </div>
+                                    <div class="mb-2 mx-auto">
+                                        <label for="autostrada" class="form-label">Autostrada</label>
+                                        <input type="text" class="form-control" id="autostrada"
+                                            formControlName="autostrada">
+                                    </div>
+                                    <div class="mb-2 mx-auto">
+                                        <label for="combinato" class="form-label">Combinato</label>
+                                        <input type="text" class="form-control" id="combinato"
+                                            formControlName="combinato">
+                                    </div>
+                                </div>
+                                <div class=" mx-auto">
+                                    <label for="emissioni" class="form-label">Emissioni</label>
+                                    <input type="text" class="form-control" id="emissioni" formControlName="emissioni">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row w-100 d-flex justify-content-around">
+                        <div class="col-6">
+                            <!-- Dimensioni -->
+                            <div formGroupName="dimensioni" class="p-3 border border-1 border-black m-4">
+                                <h5 class="my-2">Dimensioni</h5>
+                                <div class="mb-2 mx-auto">
+                                    <label for="lunghezza" class="form-label">Lunghezza</label>
+                                    <input type="text" class="form-control" id="lunghezza" formControlName="lunghezza">
+                                </div>
+                                <div class="mb-2 mx-auto">
+                                    <label for="larghezza" class="form-label">Larghezza</label>
+                                    <input type="text" class="form-control" id="larghezza" formControlName="larghezza">
+                                </div>
+                                <div class="mb-2 mx-auto">
+                                    <label for="altezza" class="form-label">Altezza</label>
+                                    <input type="text" class="form-control" id="altezza" formControlName="altezza">
+                                </div>
+                                <div class="mb-2 mx-auto">
+                                    <label for="passo" class="form-label">Passo</label>
+                                    <input type="text" class="form-control" id="passo" formControlName="passo">
+                                </div>
+                                <div class="mb-2 mx-auto">
+                                    <label for="pesoAVuoto" class="form-label">Peso a Vuoto</label>
+                                    <input type="text" class="form-control" id="pesoAVuoto"
+                                        formControlName="pesoAVuoto">
+                                </div>
+                                <div class="mb-2 mx-auto">
+                                    <label for="capacitaSerbatoio" class="form-label">Capacità Serbatoio</label>
+                                    <input type="text" class="form-control" id="capacitaSerbatoio"
+                                        formControlName="capacitaSerbatoio">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!-- Interni -->
+                            <div formGroupName="interni" class="p-3 border border-1 border-black m-4">
+                                <h5 class="my-2">Interni</h5>
+                                <div class="mb-5 mx-auto">
+                                    <label for="posti" class="form-label">Posti</label>
+                                    <input type="text" class="form-control" id="posti" formControlName="posti">
+                                </div>
+                                <div class="mb-5 mx-auto">
+                                    <label for="tappezzeria" class="form-label">Tappezzeria</label>
+                                    <input type="text" class="form-control" id="tappezzeria"
+                                        formControlName="tappezzeria">
+                                </div>
+                                <div class="mb-5 mx-auto">
+                                    <label>Caratteristiche</label>
+                                    <div formArrayName="caratteristiche">
+                                        <div
+                                            *ngFor="let caratteristica of caratteristicheInterni.controls; let k = index">
+                                            <label for="caratteristica{{k}}" class="form-label">Caratteristica</label>
+                                            <input type="text" class="form-control" [id]="'caratteristica' + k"
+                                                [formControlName]="k">
+                                            <button type="button" class="btn btnInventory"
+                                                (click)="rimuoviCaratteristicainterni(k)">Rimuovi</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn text-black mt-2"
+                                        (click)="aggiungiCaratteristicainterni()">Aggiungi
+                                        Caratteristica</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!-- Esterni -->
+                            <div formGroupName="esterni" class="p-3 border border-1 border-black m-4">
+                                <h5 class="my-2">Esterni</h5>
+                                <div class="mb-5 mx-auto">
+                                    <label>Opzioni Colori</label>
+                                    <div formArrayName="opzioniColori">
+                                        <div *ngFor="let opzioneColore of opzioniColori.controls; let j = index">
+                                            <label for="opzioneColore{{j}}" class="form-label">Opzione Colore</label>
+                                            <input type="text" class="form-control" [id]="'opzioneColore' + j"
+                                                [formControlName]="j">
+                                            <button type="button" class="btn btnInventory"
+                                                (click)="rimuoviOpzioneColore(j)">Rimuovi</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn text-black mt-2"
+                                        (click)="aggiungiOpzioneColoreEsterni()">Aggiungi
+                                        Opzione Colore</button>
+                                </div>
+                                <div class="mb-5 mx-auto">
+                                    <label>Caratteristiche</label>
+                                    <div formArrayName="caratteristiche">
+                                        <div
+                                            *ngFor="let caratteristica of caratteristicheEsterni.controls; let j = index">
+                                            <label for="caratteristica{{j}}" class="form-label">Caratteristica</label>
+                                            <input type="text" class="form-control" [id]="'caratteristica' + j"
+                                                [formControlName]="j">
+                                            <button type="button" class="btn btnInventory mt-2"
+                                                (click)="rimuoviCaratteristicaEsterni(j)">Rimuovi</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn text-black mt-2"
+                                        (click)="aggiungiCaratteristicaEsterni()">Aggiungi
+                                        Caratteristica</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!-- Sicurezza -->
+                            <div formGroupName="sicurezza" class="p-3 border border-1 border-black m-4">
+                                <h5 class="my-2">Assistenza alla Guida</h5>
+                                <div formArrayName="assistenzaAllaGuida">
+                                    <div *ngFor="let assistenzaAllaGuida of assistenzaAllaGuida.controls; let j = index"
+                                        class="mb-3">
+                                        <label for="assistenzaAllaGuida{{j}}" class="form-label">Opzione
+                                            Assistenza</label>
+                                        <input type="text" class="form-control" [id]="'assistenzaAllaGuida' + j"
+                                            [formControlName]="j">
+                                        <button type="button" class="btn btnInventory mt-2"
+                                            (click)="rimuoviAssistenzaAllaGuida(j)">Rimuovi</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn text-black mt-2"
+                                    (click)="aggiungiAssistenzaAllaGuida()">Aggiungi
+                                    Opzione
+                                    Assistenza</button>
+
+
+                                <!-- Sicurezza -->
+                                <h5 class="my-2">Sicurezza</h5>
+                                <div formArrayName="sicurezza">
+                                    <div *ngFor="let sicurezzaGroup of sicurezza.controls; let j = index" class="mb-3">
+                                        <label for="sicurezza{{j}}" class="form-label">Opzione Sicurezza</label>
+                                        <input type="text" class="form-control" [id]="'sicurezza' + j"
+                                            [formControlName]="j">
+                                        <button type="button" class="btn btnInventory mt-2"
+                                            (click)="rimuoviSicurezza(j)">Rimuovi</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn text-black mt-2" (click)="aggiungiSicurezza()">Aggiungi
+                                    Opzione
+                                    Sicurezza</button>
+
+
+                                <!-- Airbags -->
+                                <div formGroupName="airbags">
+                                    <h5 class="my-2">Airbags</h5>
+                                    <div class="form-check p-0 ps-3">
+                                        <input class="form-check-input" type="checkbox" id="anteriore"
+                                            formControlName="anteriore">
+                                        <label class="form-check-label" for="anteriore">Anteriore</label>
+                                    </div>
+                                    <div class="form-check p-0 ps-3">
+                                        <input class="form-check-input" type="checkbox" id="laterale"
+                                            formControlName="laterale">
+                                        <label class="form-check-label" for="laterale">Laterale</label>
+                                    </div>
+                                    <div class="form-check p-0 ps-3">
+                                        <input class="form-check-input" type="checkbox" id="tendina"
+                                            formControlName="tendina">
+                                        <label class="form-check-label" for="tendina">Tendina</label>
+                                    </div>
+                                    <div class="form-check p-0 ps-3">
+                                        <input class="form-check-input" type="checkbox" id="ginocchia"
+                                            formControlName="ginocchia">
+                                        <label class="form-check-label" for="ginocchia">Ginocchia</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center p-5">
+                <button type="submit" class="btn text-black fs-6 mt-3 mx-auto">Salva Auto</button>
+            </div>
+        </form>
+    </div>
+</div>

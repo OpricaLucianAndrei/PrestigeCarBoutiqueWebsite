@@ -1,0 +1,177 @@
+.container-fluid{
+    font-family: 'Caviar Dreams';
+    letter-spacing: 2px;
+}
+
+.card {
+    position: relative;
+    width: 30%;
+    aspect-ratio: 16/9;
+    background-color: #f2f2f2;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Nascondi qualsiasi parte dell'immagine che esce dal contenitore */
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px #ffffff80;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@media (max-width: 992px) {
+    .card{
+      width: 50%;
+    }
+  }
+  @media (max-width: 776px) {
+    .card{
+      width: 100%;
+    }
+  }
+
+.card__image img {
+    width: 100%;
+    height: 100%;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%; /* Assicurati che l'immagine riempia l'intera altezza del contenitore */
+    object-fit: cover; /* Ritaglia l'immagine per riempire il contenitore */
+    object-position: center; /* Centra l'immagine all'interno del contenitore */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+    transform: rotateX(0deg);
+}
+
+.card__title {
+  font-size: 1rem;
+    margin: 0;
+    border-bottom: 1px solid black;
+}
+
+.card__description {
+    margin: 10px 0;
+    line-height: 1.4;
+    font-size: 0.7rem;
+}
+
+.btn {
+    font-size: 0.8rem;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: black;
+    transition: 0.5s ease;
+  }
+  
+  .btn:hover {
+    color: white;
+    transition-delay: 0.5s;
+  }
+  
+  .btn:hover::before {
+    width: 100%;
+  }
+  
+  .btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: black;
+    transition: 0.4s ease;
+    z-index: -1;
+  }
+  
+  .btn:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+  }
+.btnInventory{
+    color: rgb(255, 0, 0);
+}
+
+.btnInventory::before{
+    background-color: rgb(255, 0, 0);
+}
+.btnInventory:hover{
+    color: rgb(255, 255, 255);
+}
+.btnInventory::after{
+    background-color: rgb(255, 0, 0);
+}
+
+.btnAdd{
+    color: rgb(255, 255, 255);
+}
+
+.btnAdd::before{
+    background-color: rgb(255, 255, 255);
+}
+.btnAdd:hover{
+    color: rgb(255, 255, 255);
+}
+.btnAdd::after{
+    background-color: rgb(255, 255, 255);
+}
+
+
+input, select{
+  border-radius: 0;
+  font-size: 0.8rem;
+  height: 1.2rem;
+}
+option{
+  font-size: 0.8rem;
+}
+label{
+    color: white;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+#advert {
+    border: 1px solid black;
+    padding: 10px;
+}

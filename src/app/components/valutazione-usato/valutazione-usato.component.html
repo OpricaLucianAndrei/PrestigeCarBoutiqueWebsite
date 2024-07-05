@@ -1,0 +1,79 @@
+<!-- search-auto.component.html -->
+<div class="container-fluid bg-white text-center mb-5 py-5" id="valUsato">
+    <div class="row w-100 p-3 d-flex justify-content-around align-items-center">
+        <img src="../../../assets/images/1White.png" alt="logo" style="width: 5%;" class="mb-2">
+        <h2 class="p-5 display-6 fw-semibold text-black">Valuta il tuo usato</h2>
+        <p class="px-5 mb-5">Scegi marca, modello, anno e chilometraggio della tua auto per una valutazione in tempo reale del tuo usato,
+            in base alle auto possedute nel nostro database con le stesse caratteristiche. E se non fosse presente non
+            esitare a contattarci per una valutazione più approfondita dal vivo.</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" #searchForm="ngForm" class="w-100 bg-black mb-5">
+        <div class="row w-100 p-5 d-flex justify-content-around align-items-center bg-black">
+            <div class="col-auto d-flex align-items-center">
+                <label for="marca" class="text-white me-2">Marca:</label>
+                <select class="form-select" name="marca" id="marca" [(ngModel)]="selectedMarca"
+                    (change)="onMarcaChange()">
+                    <option value="" selected>Marca</option>
+                    <ng-container *ngFor="let marca of uniqueMarcas">
+                        <option [value]="marca">{{marca}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="col-auto d-flex align-items-center">
+                <label for="modello" class="text-white me-2">Modello:</label>
+                <select class="form-select" name="modello" id="modello" [(ngModel)]="selectedModello"
+                    (change)="onModelloChange()" [disabled]="!selectedMarca">
+                    <option value="" selected>Modello</option>
+                    <ng-container *ngFor="let modello of uniqueModelli">
+                        <option [value]="modello">{{modello}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="col-auto d-flex align-items-center">
+                <label for="anno" class="text-white me-2">Anno:</label>
+                <select class="form-select" name="anno" id="anno" [(ngModel)]="selectedAnno"
+                    [disabled]="!selectedModello">
+                    <option value selected>Anno</option>
+                    <ng-container *ngFor="let anno of uniqueAnni">
+                        <option [value]="anno">{{anno}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="col-auto d-flex align-items-center">
+                <label for="chilometraggio" class="text-white me-2">Chilometraggio:</label>
+                <select class="form-select" name="chilometraggio" id="chilometraggio"
+                    [(ngModel)]="selectedChilometraggioInterval" (change)="onChilometraggioIntervalChange()">
+                    <option value="" selected>Seleziona Intervallo</option>
+                    <option value="0-5000">0 - 5,000 km</option>
+                    <option value="5001-10000">5,001 - 10,000 km</option>
+                    <option value="10001-50000">10,001 - 50,000 km</option>
+                    <option value="50001-100000">50,001 - 100,000 km</option>
+                    <option value="100001-200000">100,001 - 200,000 km</option>
+                    <option value="200001">Oltre 200,000 km</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
+    <div class="row w-100 p-5 bg-white" *ngIf="priceStats">
+        <div class="col-4 border border-1 border-black p-4">
+            <h6>Prezzo Minimo: {{priceStats.min | currency:'EUR'}}</h6>
+        </div>
+        <div class="col-4 border border-1 border-black p-4">
+            <h6>Prezzo Massimo: {{priceStats.max | currency:'EUR'}}</h6>
+        </div>
+        <div class="col-4 border border-1 border-black p-4">
+            <h6>Prezzo Medio: {{priceStats.avg | currency:'EUR'}}</h6>
+        </div>
+    </div>
+    <div class="row w-100 p-5 bg-white" *ngIf="!priceStats">
+        <div class="col-12">
+            <h6 class="px-5">Non abbiamo auto con queste caratteristiche nel database, ma può comunque contattarci per valurìtare la
+                vettura dal vivo</h6>
+        </div>
+        <div class="col-2 mx-auto">
+            <button class="btn mt-3 text-black" [routerLink]="['/contact-us']"
+                routerLinkActive="active">Contattaci!</button>
+        </div>
+    </div>
+</div>

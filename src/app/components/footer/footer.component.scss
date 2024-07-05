@@ -1,0 +1,129 @@
+footer{
+  font-family: 'Caviar Dreams';
+  letter-spacing: 2px;
+  font-size: 0.6rem;
+}
+
+#suDiNoi{
+  font-size: 0.6rem;
+}
+
+
+  
+.btnInventory {
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.btnInventory::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: white;
+  transition: 0.5s ease;
+}
+
+.btnInventory:hover {
+  color: black;
+  transition-delay: 0.5s;
+}
+
+.btnInventory:hover::before {
+  width: 100%;
+}
+ 
+.btnInventory::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: white;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.btnInventory:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: white;
+}
+
+.dots{
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+
+#dot1{
+  border-right: 1px solid white;
+}
+#dot3{
+  border-left: 1px solid white;
+}
+
+
+  
+.btnInstagram {
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.btnInstagram::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #cc39a4;
+  transition: 0.5s ease;
+}
+
+.btnInstagram:hover {
+  color: #cc39a4;
+  transition-delay: 0.5s;
+}
+
+.btnInstagram:hover::before {
+  width: 100%;
+}
+ 
+.btnInstagram::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #cc39a4;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.btnInstagram:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: white;
+}
+
+.social{
+  font-size: 0.6rem;
+}
