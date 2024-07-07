@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Auto } from 'src/app/interfaces/auto';
 import { AutoService } from 'src/app/services/auto.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-add-car',
@@ -11,7 +12,7 @@ import { AutoService } from 'src/app/services/auto.service';
 export class AddCarComponent {
   autoForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private autoService: AutoService) { }
+  constructor(private fb: FormBuilder, private autoService: AutoService, private modalSrv: ModalService) { }
 
   ngOnInit() {
     this.autoForm = this.fb.group({
@@ -34,7 +35,7 @@ export class AddCarComponent {
             trazione: [''],
           }),
           consumoCarburante: this.fb.group({
-            città:[''],
+            città: [''],
             autostrada: [''],
             combinato: ['']
           }),
@@ -65,7 +66,7 @@ export class AddCarComponent {
             laterale: [false],
             tendina: [false],
             ginocchia: [false]
-        })
+          })
         })
       }),
       prezzo: this.fb.group({
@@ -78,7 +79,7 @@ export class AddCarComponent {
       immagini: this.fb.array([])
     });
 
-    
+
   }
 
 
@@ -193,19 +194,19 @@ export class AddCarComponent {
   aggiungiAssistenzaAllaGuida(): void {
     this.assistenzaAllaGuida.push(this.fb.control(''));
     console.log(this.assistenzaAllaGuida.value);
-    
+
   }
 
   rimuoviAssistenzaAllaGuida(index: number): void {
     this.assistenzaAllaGuida.removeAt(index);
-  } 
+  }
 
   // Metodi per gestire l'aggiunta e la rimozione di opzioni Sicurezza
 
   aggiungiSicurezza(): void {
     this.sicurezza.push(this.fb.control(''));
     console.log(this.sicurezza.value);
-    
+
   }
 
   rimuoviSicurezza(index: number): void {
@@ -228,11 +229,9 @@ export class AddCarComponent {
       this.autoService.addAuto(auto).subscribe(
         response => {
           console.log('Auto added successfully:', response);
-          // Aggiungi eventuali azioni post-submit, come la navigazione o la visualizzazione di un messaggio di successo
         },
         error => {
           console.error('Error adding auto:', error);
-          // Gestisci l'errore, ad esempio mostrando un messaggio di errore all'utente
         }
       );
     } else {

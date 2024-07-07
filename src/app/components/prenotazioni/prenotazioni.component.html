@@ -8,38 +8,73 @@
             suo test drive esclusivo e sperimenti l'emozione di guida che solo noi possiamo offrirle.</h3>
     </div>
     <div class="row w-100 pb-3 d-flex justify-content-around align-items-center">
-        <form class="form" (ngSubmit)="onSubmit()">
-            <div class="flex-column">
-                <label for="autoId">Auto:</label>
-            </div>
-            <div class="inputForm d-flex justify-content-center">
-                <select id="autoId" [(ngModel)]="selectedAutoId" name="autoId" required class="w-100 bg-transparent">
-                    <option *ngFor="let auto of autos" [value]="auto.id">{{ auto.marca }} {{ auto.modello }} ({{
-                        auto.anno
-                        }})</option>
-                </select>
-            </div>
+        <div class="col-4 offset-1">
+            <form class="form" (ngSubmit)="onSubmit()">
+                <div class="flex-column">
+                    <label for="autoId">Auto:</label>
+                </div>
+                <div class="inputForm d-flex justify-content-center">
+                    <select id="autoId" [(ngModel)]="selectedAutoId" name="autoId" required
+                        class="w-100 bg-transparent">
+                        <option *ngFor="let auto of autos" [value]="auto.id">{{ auto.marca }} {{ auto.modello }} ({{
+                            auto.anno
+                            }})</option>
+                    </select>
+                </div>
 
-            <div class="flex-column">
-                <label for="dataPrenotazione">Data Prenotazione:</label>
-            </div>
-            <div class="inputForm">
-                <input type="date" class="w-100" id="dataPrenotazione" [(ngModel)]="dataPrenotazione"
-                    name="dataPrenotazione" required>
-            </div>
-            <div class="flex-column">
-                <label for="oraPrenotazione">Ora Prenotazione:</label>
-            </div>
-            <div class="inputForm">
-                <input type="time" class="w-100" id="oraPrenotazione" [(ngModel)]="oraPrenotazione"
-                    name="oraPrenotazione" required>
-            </div>
-            <div class="visually-hidden">
-                <label for="userId">User ID:</label>
-                <input type="number" id="userId" [(ngModel)]="prenotazioneDto.userId" name="userId" disabled>
-                <!-- Visualizza l'ID utente, disabilitato in modo che non possa essere modificato -->
-            </div>
-            <button type="submit" class="btn mt-3 text-black">Crea Prenotazione</button>
-        </form>
+                <div class="flex-column">
+                    <label for="dataPrenotazione">Data Prenotazione:</label>
+                </div>
+                <div class="inputForm">
+                    <input type="date" class="w-100" id="dataPrenotazione" [(ngModel)]="dataPrenotazione"
+                        name="dataPrenotazione" required>
+                </div>
+                <div class="flex-column">
+                    <label for="oraPrenotazione">Ora Prenotazione:</label>
+                </div>
+                <div class="inputForm">
+                    <input type="time" class="w-100" id="oraPrenotazione" [(ngModel)]="oraPrenotazione"
+                        name="oraPrenotazione" required>
+                </div>
+                <div class="visually-hidden">
+                    <label for="userId">User ID:</label>
+                    <input type="number" id="userId" [(ngModel)]="prenotazioneDto.userId" name="userId" disabled>
+                    <!-- Visualizza l'ID utente, disabilitato in modo che non possa essere modificato -->
+                </div>
+                <button type="submit" class="btn mt-3 text-black">Crea Prenotazione</button>
+            </form>
+        </div>
+        <div class="col-6 offset-1">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" class="full-width">Prenotazioni Effettuate</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h6>Id utente</h6>
+                        </th>
+                        <th>
+                            <h6>Auto</h6>
+                        </th>
+                        <th>
+                            <h6>Data</h6>
+                        </th>
+                        <th>
+                            <h6>Orario</h6>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prenotazione of prenotazioni">
+                        <td>{{prenotazione.user.id}}</td>
+                        <td>{{prenotazione.auto.marca}} {{prenotazione.auto.modello}}</td>
+                        <td>{{prenotazione.dataPrenotazione}}</td>
+                        <td>{{prenotazione.oraPrenotazione}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
     </div>
 </div>

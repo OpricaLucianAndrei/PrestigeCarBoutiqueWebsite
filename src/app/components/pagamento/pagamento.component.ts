@@ -149,7 +149,7 @@ export class PagamentoComponent implements OnInit {
 
   onColorChange(event: Event): void {
     const selectedColor = (event.target as HTMLSelectElement).value;
-    const imageUrl = this.auto.immagini.find(img => img.opzioneColore === selectedColor)?.url;
+    const imageUrl = this.auto.immagini.find(img => img.opzioneColore === selectedColor)?.url[0];
     this.selectedImageUrl = imageUrl || '';
   }
 

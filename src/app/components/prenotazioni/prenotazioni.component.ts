@@ -27,7 +27,7 @@ export class PrenotazioniComponent implements OnInit {
   dataPrenotazione: string = '';
   oraPrenotazione: string = '';
   selectedAutoId: string = "";
-
+  auto!: Auto;
   userNome!: string;
   userCognome!: string;
 
@@ -36,7 +36,7 @@ export class PrenotazioniComponent implements OnInit {
     private autoSrv: AutoService,
     private prenotazioneService: PrenotazioneService,
     private modalSrv: ModalService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.authSrv.getCurrentUser().subscribe(
@@ -111,7 +111,7 @@ export class PrenotazioniComponent implements OnInit {
           if (error.status === 404) {
             this.modalSrv.showAlert('L\'auto non è disponibile per la data e ora specificate')
           } else {
-            
+
           }
         }
       );
@@ -126,8 +126,8 @@ export class PrenotazioniComponent implements OnInit {
       const dataPrenotazioneEsistente = prenotazione.dataPrenotazione;
       const oraPrenotazioneEsistente = prenotazione.oraPrenotazione;
       return prenotazione.auto.id === autoId &&
-             dataPrenotazioneEsistente === data &&
-             oraPrenotazioneEsistente === ora;
+        dataPrenotazioneEsistente === data &&
+        oraPrenotazioneEsistente === ora;
     });
   }
 
