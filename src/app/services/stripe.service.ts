@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class StripeService {
 
   private stripePromise = loadStripe('pk_test_51PP9KiC3vTlO7HpvKttP6YXkahHTb6Zw0OKVXiapgimMasbcOfMZfPpH9fj7f2rRra9t933C2tYEQAuzbmUUAslO00KNLklRqA');
-  apiUrl = 'http://localhost:8080/api/prestigecarboutique'
+  apiUrl = 'https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique'
 
 
 

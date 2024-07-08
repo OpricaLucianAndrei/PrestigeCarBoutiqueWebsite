@@ -7,7 +7,7 @@ import { EmailRequest } from '../interfaces/email-request';
   providedIn: 'root'
 })
 export class EmailService {
-  private apiUrl = 'http://localhost:8080/api/prestigecarboutique/send-email';
+  private apiUrl = 'https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique/send-email';
 
   constructor(private http: HttpClient) { }
 

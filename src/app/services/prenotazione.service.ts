@@ -8,7 +8,7 @@ import { PrenotazioneDto } from '../interfaces/prenotazione-dto';
   providedIn: 'root'
 })
 export class PrenotazioneService {
-  apiUrl='http://localhost:8080/api/prestigecarboutique/prenotazioni'
+  apiUrl='https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique/prenotazioni'
 
   constructor(private http: HttpClient) { }
 

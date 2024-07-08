@@ -14,8 +14,8 @@ export class AuthService {
 
  
 
-  apiURL = "http://localhost:8080/auth/"
-  apiUrl= "http://localhost:8080/api/prestigecarboutique/"
+  apiURL = "https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/auth/"
+  apiUrl= "https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique/"
   jwtHelper = new JwtHelperService();
   private authSub = new BehaviorSubject<AuthData | null>(null)
   user$ = this.authSub.asObservable();

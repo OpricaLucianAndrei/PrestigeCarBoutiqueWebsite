@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AutoService {
 
-  apiUrl = 'http://localhost:8080/api/prestigecarboutique'
+  apiUrl = 'https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique'
 
   constructor(private http: HttpClient) { }
 

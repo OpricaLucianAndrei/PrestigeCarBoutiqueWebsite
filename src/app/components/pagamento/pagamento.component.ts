@@ -136,7 +136,7 @@ export class PagamentoComponent implements OnInit {
     // Example: Send the token ID and amount to your backend API for payment processing
     // You can use Angular HttpClient to make a POST request to your backend
     const payload = { amount, "currency": "EUR"};
-    this.http.post<any>('http://localhost:8080/api/prestigecarboutique/pagamenti/payment-intent', payload)
+    this.http.post<any>('https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique/pagamenti/payment-intent', payload)
       .subscribe(response => {
         console.log('Payment processed successfully:', response);
         this.modalSrv.showAlert('Pagamento effettuato!!');
