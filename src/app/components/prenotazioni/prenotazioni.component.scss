@@ -114,13 +114,16 @@ td, th {
     border: 1px solid black;
 }
 
+.table-container {
+    max-height: 45vh; /* Imposta l'altezza massima del contenitore */
+    overflow-y: auto; /* Abilita lo scroll verticale */
+}
+
 .vertical-scroll {
-    overflow-y: auto;
-    max-height: 30vh; /* Imposta l'altezza massima in viewport height */
     white-space: nowrap;
 }
 
-/* Assicurati che i contenuti delle celle non rompano la riga */
 .vertical-scroll td {
     white-space: normal;
 }
+
