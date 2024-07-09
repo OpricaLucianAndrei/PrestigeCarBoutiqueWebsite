@@ -3,6 +3,7 @@ import { SignUp } from 'src/app/interfaces/sign-up';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,13 +13,13 @@ import { NgForm } from '@angular/forms';
 export class SignupComponent {
   userReg!: SignUp;
 
-  constructor(private authSrv: AuthService, private router: Router) {}
+  constructor(private authSrv: AuthService, private router: Router, private modalSrv: ModalService) {}
 
   onSubmit(form: NgForm) {
     console.log(form.value);
     this.authSrv.signup(form.value).subscribe(
       (response) => {
-        alert("Registrazione effettuata")
+        this.modalSrv.showAlert("Registrazione effettuata")
         console.log(response);
         this.router.navigate(['/login']);
       },

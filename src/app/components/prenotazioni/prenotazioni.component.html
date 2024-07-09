@@ -65,7 +65,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="vertical-scroll">
                     <tr *ngFor="let prenotazione of prenotazioni">
                         <td>{{prenotazione.user.id}}</td>
                         <td>{{prenotazione.auto.marca}} {{prenotazione.auto.modello}}</td>

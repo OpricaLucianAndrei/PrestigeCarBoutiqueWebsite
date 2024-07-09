@@ -113,3 +113,19 @@ td, th {
     padding: 10px;
     border: 1px solid black;
 }
+
+.vertical-scroll {
+    overflow-y: auto;
+    white-space: nowrap;
+    max-height: 600px;
+
+  }
+
+  .vertical-scroll .d-flex {
+    display: flex;
+  }
+
+  .vertical-scroll .col-6 {
+    flex: 0 0 auto;
+    white-space: normal;
+  }
