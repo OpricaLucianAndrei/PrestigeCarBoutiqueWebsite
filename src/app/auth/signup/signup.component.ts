@@ -16,7 +16,6 @@ export class SignupComponent {
   constructor(private authSrv: AuthService, private router: Router, private modalSrv: ModalService) {}
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
     this.authSrv.signup(form.value).subscribe(
       (response) => {
         this.modalSrv.showAlert("Registrazione effettuata")

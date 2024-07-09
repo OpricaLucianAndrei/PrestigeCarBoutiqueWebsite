@@ -53,7 +53,6 @@ export class ValutazioneUsatoComponent implements OnInit {
   onModelloChange() {
     console.log('Modello selezionato:', this.selectedModello);
     this.uniqueAnni = [...new Set(this.autos.filter(auto => auto.modello === this.selectedModello).map(auto => auto.anno))];
-    console.log(this.uniqueAnni);
     this.selectedAnno = null;
     this.filterAutos();
   }
@@ -106,16 +105,16 @@ export class ValutazioneUsatoComponent implements OnInit {
   calculatePriceStats() {
     if (this.filteredAutos.length > 0) {
       const prices = this.filteredAutos.map(auto => auto.prezzo.prezzoBase);
-      console.log(prices);
+      // console.log(prices);
 
       const min = Math.min(...prices);
-      console.log(min);
+      // console.log(min);
 
       const max = Math.max(...prices);
-      console.log(max);
+      // console.log(max);
 
       const avg = prices.reduce((sum, price) => sum + price, 0) / prices.length;
-      console.log(avg);
+      // console.log(avg);
 
       this.priceStats = { min, max, avg };
     } else {

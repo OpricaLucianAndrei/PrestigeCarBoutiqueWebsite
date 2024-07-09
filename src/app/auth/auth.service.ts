@@ -32,11 +32,9 @@ export class AuthService {
   }
 
   login(data: { email: string, password: string }) {
-    console.log("prova service")
     return this.http.post<AuthData>(`${this.apiURL}login`, data).pipe(
       tap((data) => {
         this.modalService.showAlert('Login effettuato.');
-        console.log('auth data: ', data)
       }),
       tap((data) => {
         this.authSub.next(data);

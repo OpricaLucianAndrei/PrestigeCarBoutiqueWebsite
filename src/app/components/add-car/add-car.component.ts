@@ -221,10 +221,10 @@ export class AddCarComponent {
   submitForm() {
     if (this.autoForm.valid) {
       const auto: Auto = this.autoForm.value;
-      console.log(auto);
+    
 
       const token = this.getToken(); // Implementa questo metodo per ottenere il token
-      console.log(token);
+     
 
       this.autoService.addAuto(auto).subscribe(
         response => {

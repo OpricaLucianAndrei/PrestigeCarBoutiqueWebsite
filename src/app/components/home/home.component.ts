@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
     this.fetchAutos();
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
-        console.log(fragment);
         
         const element = document.getElementById(fragment);
         if (element) {

@@ -45,7 +45,6 @@ export class PrenotazioniComponent implements OnInit {
         this.prenotazioneDto.userId = user.id;
         this.userNome = user.nome;
         this.userCognome = user.cognome;
-        console.log('User details:', this.user);
       },
       error => {
         console.error('Failed to fetch current user:', error);

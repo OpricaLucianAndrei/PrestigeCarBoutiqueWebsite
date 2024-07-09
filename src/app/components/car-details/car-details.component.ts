@@ -25,7 +25,6 @@ export class CarDetailsComponent implements OnInit {
       (user: any) => {
         this.user = user;
         this.userEmail = user.email;
-        console.log('User details:', this.user);
       },
       error => {
         console.error('Failed to fetch current user:', error);
@@ -42,7 +41,6 @@ export class CarDetailsComponent implements OnInit {
     this.autoSrv.getAutoById(id).subscribe(
       (data: Auto) => {
         this.auto = data;
-        console.log(this.auto);
         
       },
       (error: any) => {

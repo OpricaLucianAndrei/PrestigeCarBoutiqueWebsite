@@ -114,12 +114,11 @@ td, th {
     border: 1px solid black;
 }
 
-.table-container {
-    max-height: 45vh; /* Imposta l'altezza massima del contenitore */
-    overflow-y: auto; /* Abilita lo scroll verticale */
-}
+
 
 .vertical-scroll {
+    max-height: 45vh; /* Imposta l'altezza massima del contenitore */
+    overflow-y: auto; /* Abilita lo scroll verticale */
     white-space: nowrap;
 }
 

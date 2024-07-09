@@ -16,7 +16,7 @@ export class EmailService {
     const params = new HttpParams().set('senderEmail', userEmail);
     const body = JSON.stringify(emailRequest);
 
-    console.log('Corpo della richiesta inviato al server:', body); // Log del corpo della richiesta
+   // console.log('Corpo della richiesta inviato al server:', body); // Log del corpo della richiesta
 
     return this.http.post<any>(this.apiUrl, body, { headers, params });
   }

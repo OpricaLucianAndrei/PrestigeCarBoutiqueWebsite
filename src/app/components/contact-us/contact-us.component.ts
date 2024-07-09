@@ -37,7 +37,7 @@ export class ContactUsComponent implements OnInit {
       this.emailRequest.subject = `${this.emailRequest.subject} - from: ${this.userEmail}`;
       
       // Log del contenuto della richiesta
-      console.log('Dati della richiesta email:', this.emailRequest);
+      //console.log('Dati della richiesta email:', this.emailRequest);
 
       this.emailService.sendEmail(this.emailRequest, this.userEmail)
         .subscribe(response => {
