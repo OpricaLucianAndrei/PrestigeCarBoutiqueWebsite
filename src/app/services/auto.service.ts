@@ -7,8 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AutoService {
-
-  apiUrl = 'https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique'
+  apiUrl = 'https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique';
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +23,7 @@ export class AutoService {
   }
 
 
-
+ 
   getAutoByMarca(marca: string) {
     const url = `${this.apiUrl}/marca/${marca}`;
     return this.http.get<Auto[]>(url);

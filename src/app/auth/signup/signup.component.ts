@@ -12,17 +12,21 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class SignupComponent {
   userReg!: SignUp;
+  isLoading = false;
 
   constructor(private authSrv: AuthService, private router: Router, private modalSrv: ModalService) {}
 
   onSubmit(form: NgForm) {
+    this.isLoading = true;
     this.authSrv.signup(form.value).subscribe(
       (response) => {
+        this.isLoading = false;
         this.modalSrv.showAlert("Registrazione effettuata")
         console.log(response);
         this.router.navigate(['/login']);
       },
       (error) => {
+        this.isLoading = false;
         console.error(error);
       }
     );

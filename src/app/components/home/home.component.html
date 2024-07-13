@@ -1,4 +1,4 @@
-<section id="veicoliInPrimoPiano" class="bg-white text-center mb-5 ">
+<section id="veicoliInPrimoPiano" class="bg-white text-center mb-5 position-relative">
     <div class="row w-100 p-5 pb-3 d-flex justify-content-around align-items-center" id="top">
         <img src="../../../assets/images/1White.png" alt="logo" class="mb-3 logoSection">
         <h2 class="mb-5 fs-2 fw-semibold">Veicoli in primo piano:</h2>
@@ -26,16 +26,19 @@
                 inventario</button>
         </div>
     </div>
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <img class="car-movement" src="../../../assets/images/spinner.png" alt="car" style="width: 150px">
+    </div>
 </section>
-<section class="bg-black text-center p-4 pb-5">
-    <div class="row w-100 p-5 pb-5 d-flex justify-content-around align-items-center">
+<section class="bg-black text-center p-4 pb-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="row w-100 p-3 p-lg-5 mx-auto d-flex justify-content-around align-items-center">
         <img src="../../../assets/images/1.png" alt="logo" class="mb-3 logoSection">
         <h2 class="mb-3 fs-2 fw-semibold text-white">Servizi</h2>
     </div>
     <div class="row py-5">
-        <div class="col-lg-6 mx-auto d-flex justify-content-end">
+        <div class="col-md-6 col-sm-12 mx-auto d-flex justify-content-end justify-content-sm-center">
             <!-- Mostra il link di prenotazione solo se l'utente è loggato -->
-            <button *ngIf="user" class="btnInventory w-50 text-white" [routerLink]="['/prenotazioni']"
+            <button *ngIf="user" class="btnInventory text-white btnSrv"  [routerLink]="['/prenotazioni']"
                 routerLinkActive="active">
                 <img src="../../../assets/images/calendar-660670_1280.jpg" style="width: 100%; height: 30vh;"
                     alt="calendario"><br><br>
@@ -43,15 +46,15 @@
             </button>
 
             <!-- Mostra un pulsante di login se l'utente non è loggato -->
-            <button *ngIf="!user" class="btnInventory w-50 text-white" (click)="showCustomAlert()">
+            <button *ngIf="!user" class="btnInventory text-white btnSrv"  (click)="showCustomAlert()">
                 <img src="../../../assets/images/calendar-660670_1280.jpg" style="width: 100%; height: 30vh;"
                     alt="calendario"><br><br>
                 Prenota appuntamento
             </button>
 
         </div>
-        <div class="col-lg-6 mx-auto d-flex justify-content-start align-items-center">
-            <p class="text-white w-50">
+        <div class="col-md-6 mx-auto d-flex justify-content-start justify-content-md-center align-items-center  d-none d-md-flex">
+            <p class="text-white w-75">
                 Offriamo un servizio di prenotazione test drive per permettervi di vivere l'emozione di guidare l'auto
                 dei vostri sogni. Potrete sperimentare direttamente il comfort e le prestazioni del veicolo su strada
                 aperta. Il nostro team vi assisterà per garantire un'esperienza indimenticabile e personalizzata.
@@ -61,8 +64,8 @@
 
     </div>
     <div class="row py-5">
-        <div class="col-lg-6 mx-auto d-flex justify-content-end align-items-center">
-            <p class="text-white w-50">
+        <div class="col-md-6 mx-auto d-flex justify-content-end justify-content-md-center align-items-center  d-none d-md-flex">
+            <p class="text-white w-75">
                 Alla Prestige Car Boutique, forniamo una valutazione accurata e trasparente del vostro veicolo usato. Il
                 nostro team di esperti vi assicurerà il massimo valore per il vostro attuale veicolo, guidandovi
                 attraverso ogni fase del processo con professionalità e competenza.
@@ -70,13 +73,13 @@
 
         </div>
 
-        <div class="col-lg-6 mx-auto d-flex justify-content-start">
-            <button *ngIf="user" class="btnInventory w-50 text-white" [routerLink]="['/valutazione']"
+        <div class="col-md-6 col-sm-12 mx-auto d-flex justify-content-start justify-content-sm-center">
+            <button *ngIf="user" class="btnInventory text-white btnSrv"  [routerLink]="['/valutazione']"
                 routerLinkActive="active">
                 <img src="../../../assets/images/bmw-2964072_1280.jpg" style="width: 100%; height: 30vh;"
                     alt="auto"><br><br>
                 Valutazione del tuo usato</button>
-            <button *ngIf="!user" class="btnInventory w-50 text-white" (click)="showCustomAlert()">
+            <button *ngIf="!user" class="btnInventory text-white btnSrv"  (click)="showCustomAlert()">
                 <img src="../../../assets/images/bmw-2964072_1280.jpg" style="width: 100%; height: 30vh;"
                     alt="calendario"><br><br>
                 Valutazione del tuo usato
@@ -87,9 +90,9 @@
 
 </section>
 <section class="bg-white text-center mb-5 py-3">
-    <div class="row w-100 p-5 pb-3 d-flex justify-content-around align-items-center">
+    <div class="row w-100 p-3 p-lg-5 pb-3 d-flex justify-content-around align-items-center mx-auto">
         <img src="../../../assets/images/1White.png" alt="logo" class="mb-3 logoSection">
-        <h2 class="mb-5 fs-2 fw-semibold text-black">Marchi Partner</h2>
+        <h2 class="mb-3 mb-lg-4 fs-2 fw-semibold text-black">Marchi Partner</h2>
     </div>
     <div class="row py-3">
         <div class="col-lg-12 mx-auto">
@@ -100,13 +103,13 @@
 </section>
 
 
-<section id="infoConcessionario" class="container-fluid pb-5 p-4 bg-black">
+<section id="infoConcessionario" class="container-fluid pb-5 p-4 bg-black d-flex flex-column justify-content-center align-items-center">
     <div class="row p-4">
-        <div class="col-6 d-flex justify-content-center align-items-center">
+        <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
             <img src="../../../assets/images/1.png" alt="logo">
         </div>
-        <div class="col-6 text-white">
-            <div class="row w-75">
+        <div class="col-12 col-lg-6 text-white">
+            <div class="row w-75 mx-auto" >
                 <h2 class="border-bottom border-1 border-white my-3 p-3">Benvenuto a Prestige Car Boutique</h2>
                 <p class="p-2">Prestige Car Boutique è nata nel 2023 con la passione di offrire le migliori auto di
                     lusso
@@ -126,8 +129,8 @@
                     Italia. Lascia che la tua passione per le auto di prestigio diventi realtà presso Prestige
                     Car Boutique.</p>
             </div>
-            <div class="row w-75 d-flex justify-content-center">
-                <div class="w-50 d-flex justify-content-center p-3">
+            <div class="row w-lg-75 w-100 d-flex justify-content-center">
+                <div class="w-75 w-lg-50 d-flex justify-content-center p-3">
                     <button class="btnInventory text-white" [routerLink]="['/inventory']" routerLinkActive="active">Vedi
                         inventario</button>
                 </div>

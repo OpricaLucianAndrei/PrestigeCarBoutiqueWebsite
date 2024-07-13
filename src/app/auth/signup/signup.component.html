@@ -1,13 +1,13 @@
 
-<div class="container-fluid d-flex bg-white p-5">
+<div class="container-fluid d-flex justify-content-center bg-white py-5 position-relative w-100">
     <div class="row w-100">
-        <div class="col-6 p-2 d-flex justify-content-center align-items-center mx-auto">
+        <div class="col-md-6 col-12 py-2 px-0 d-flex justify-content-center align-items-center mx-auto">
             <div class="form-container w-75 m-0">
-                <div class="row w-100 d-flex justify-content-around align-items-center">
+                <div class="d-flex justify-content-around align-items-center">
                     <img src="../../../assets/images/1White.png" alt="logo" class="logoSection">
                 </div>
                 <h1 class="display-6 fw-normal mt-4 text-center text-dark"> Registrati </h1>
-                <form class="form p-4" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+                <form class="form " #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
                     <div class="flex-column">
                         <label class="my-2"> Nome </label>
                         <div class="inputForm">
@@ -49,7 +49,7 @@
                             <input type="password" class="input" placeholder="Inserisci la tua password" name="password" id="password" ngModel>
                         </div>
                         <div class="d-flex justify-content-center mt-4 ,mb-1">
-                            <button type="submit" [disabled]="signupForm.invalid"
+                            <button type="submit" [disabled]="signupForm.invalid || isLoading"
                                 class="btn text-black w-50 m-auto">Passa al tuo accesso </button>
                         </div>
                     </div>
@@ -57,5 +57,8 @@
             </div>
 
         </div>
+    </div>
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <img class="car-movement" src="../../../assets/images/spinner.png" alt="car" style="width: 150px">
     </div>
 </div>

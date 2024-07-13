@@ -1,15 +1,47 @@
 <!-- src/app/components/prenotazione-form/prenotazione-form.component.html -->
 
-<div class="container-fluid bg-white text-center mb-5 py-5">
+<div class="container-fluid bg-white text-center mb-5 py-5 d-flex flex-column justify-content-center align-items-center">
     <div class="row w-100 p-5 pb-3 d-flex justify-content-around align-items-center">
         <img src="../../../assets/images/1White.png" alt="logo" style="width: 5%;" class="mb-3">
         <!-- <h2 class="mb-5 display-6 fw-semibold text-black">Nuova Prenotazione</h2> -->
         <h3 class="p-5 pb-3 fs-3 fw-semibold text-black">Benvenuto, {{userNome}} {{userCognome}}!<br> Prenoti il
             suo test drive esclusivo e sperimenti l'emozione di guida che solo noi possiamo offrirle.</h3>
     </div>
-    <div class="row w-100 pb-3 d-flex justify-content-around align-items-center">
-        <div class="col-4 offset-1">
-            <form class="form" (ngSubmit)="onSubmit()">
+    <div class="row w-100 pb-3 d-flex justify-content-md-around justify-content-center align-items-center">
+        <div class="col-12 col-md-6 offset-md-1 p-1">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" class="full-width">Prenotazioni Effettuate</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h6>Id utente</h6>
+                        </th>
+                        <th>
+                            <h6>Auto</h6>
+                        </th>
+                        <th>
+                            <h6>Data</h6>
+                        </th>
+                        <th>
+                            <h6>Orario</h6>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="vertical-scroll">
+                    <tr *ngFor="let prenotazione of prenotazioni">
+                        <td>{{prenotazione.user.id}}</td>
+                        <td>{{prenotazione.auto.marca}} {{prenotazione.auto.modello}}</td>
+                        <td>{{prenotazione.dataPrenotazione}}</td>
+                        <td>{{prenotazione.oraPrenotazione}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-12 col-md-4 offset-md-1">
+            <form class="form w-100" (ngSubmit)="onSubmit()">
                 <div class="flex-column">
                     <label for="autoId">Auto:</label>
                 </div>
@@ -44,37 +76,6 @@
                 <button type="submit" class="btn mt-3 text-black">Crea Prenotazione</button>
             </form>
         </div>
-        <div class="col-6 offset-1">
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="4" class="full-width">Prenotazioni Effettuate</th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <h6>Id utente</h6>
-                        </th>
-                        <th>
-                            <h6>Auto</h6>
-                        </th>
-                        <th>
-                            <h6>Data</h6>
-                        </th>
-                        <th>
-                            <h6>Orario</h6>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="vertical-scroll">
-                    <tr *ngFor="let prenotazione of prenotazioni">
-                        <td>{{prenotazione.user.id}}</td>
-                        <td>{{prenotazione.auto.marca}} {{prenotazione.auto.modello}}</td>
-                        <td>{{prenotazione.dataPrenotazione}}</td>
-                        <td>{{prenotazione.oraPrenotazione}}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
+        
     </div>
 </div>

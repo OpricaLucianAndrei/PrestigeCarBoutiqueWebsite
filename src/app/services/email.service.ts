@@ -8,7 +8,6 @@ import { EmailRequest } from '../interfaces/email-request';
 })
 export class EmailService {
   private apiUrl = 'https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique/send-email';
-
   constructor(private http: HttpClient) { }
 
   sendEmail(emailRequest: EmailRequest, userEmail: string): Observable<any> {

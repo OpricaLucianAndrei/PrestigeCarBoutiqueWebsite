@@ -8,8 +8,8 @@
             esitare a contattarci per una valutazione più approfondita dal vivo.</p>
     </div>
     <form (ngSubmit)="onSubmit()" #searchForm="ngForm" class="w-100 bg-black mb-5">
-        <div class="row w-100 p-5 d-flex justify-content-around align-items-center bg-black">
-            <div class="col-auto d-flex align-items-center">
+        <div class="row w-100 p-5 d-flex justify-content-md-around justify-content-start align-items-center bg-black">
+            <div class="col-auto d-flex align-items-center my-2">
                 <label for="marca" class="text-white me-2">Marca:</label>
                 <select class="form-select" name="marca" id="marca" [(ngModel)]="selectedMarca"
                     (change)="onMarcaChange()">
@@ -19,7 +19,7 @@
                     </ng-container>
                 </select>
             </div>
-            <div class="col-auto d-flex align-items-center">
+            <div class="col-auto d-flex align-items-center my-2">
                 <label for="modello" class="text-white me-2">Modello:</label>
                 <select class="form-select" name="modello" id="modello" [(ngModel)]="selectedModello"
                     (change)="onModelloChange()" [disabled]="!selectedMarca">
@@ -29,7 +29,7 @@
                     </ng-container>
                 </select>
             </div>
-            <div class="col-auto d-flex align-items-center">
+            <div class="col-auto d-flex align-items-center my-2">
                 <label for="anno" class="text-white me-2">Anno:</label>
                 <select class="form-select" name="anno" id="anno" [(ngModel)]="selectedAnno"
                     [disabled]="!selectedModello">
@@ -39,7 +39,7 @@
                     </ng-container>
                 </select>
             </div>
-            <div class="col-auto d-flex align-items-center">
+            <div class="col-auto d-flex align-items-center my-2">
                 <label for="chilometraggio" class="text-white me-2">Chilometraggio:</label>
                 <select class="form-select" name="chilometraggio" id="chilometraggio"
                     [(ngModel)]="selectedChilometraggioInterval" (change)="onChilometraggioIntervalChange()">
@@ -56,19 +56,19 @@
     </form>
 
     <div class="row w-100 p-5 bg-white" *ngIf="priceStats">
-        <div class="col-4 border border-1 border-black p-4">
+        <div class="col-12 col-md-4 my-2 border border-1 border-black p-4">
             <h6>Prezzo Minimo: {{priceStats.min | currency:'EUR'}}</h6>
         </div>
-        <div class="col-4 border border-1 border-black p-4">
+        <div class="col-12 col-md-4 my-2 border border-1 border-black p-4">
             <h6>Prezzo Massimo: {{priceStats.max | currency:'EUR'}}</h6>
         </div>
-        <div class="col-4 border border-1 border-black p-4">
+        <div class="col-12 col-md-4 my-2 border border-1 border-black p-4">
             <h6>Prezzo Medio: {{priceStats.avg | currency:'EUR'}}</h6>
         </div>
     </div>
     <div class="row w-100 p-5 bg-white" *ngIf="!priceStats">
         <div class="col-12">
-            <h6 class="px-5">Non abbiamo auto con queste caratteristiche nel database, ma può comunque contattarci per valurìtare la
+            <h6 class="px-2">Non abbiamo auto con queste caratteristiche nel database, ma può comunque contattarci per valurìtare la
                 vettura dal vivo</h6>
         </div>
         <div class="col-2 mx-auto">

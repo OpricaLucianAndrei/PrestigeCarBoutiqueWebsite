@@ -18,9 +18,13 @@ export class CarDetailsComponent implements OnInit {
   user!: AuthData | null;
   sessionId!: string;
   userEmail!: string;
+  
+  isLoading =false;
+
   constructor(private route: ActivatedRoute, private autoSrv: AutoService, private stripeService: StripeService, private authSrv: AuthService) { }
 
   ngOnInit(): void {
+    this.isLoading=true;
     this.authSrv.getCurrentUser().subscribe(
       (user: any) => {
         this.user = user;
@@ -34,6 +38,7 @@ export class CarDetailsComponent implements OnInit {
     if (id) {
       this.autoId = +id; 
       this.getCar(this.autoId);
+      this.isLoading=false;
     }
   }
 

@@ -32,12 +32,51 @@ p{
     visibility: visible;
 }
 
+@media (max-width: 1440px) {
+  #myVideo{
+    width: 65vw !important;
+  }
+}
+
+@media (max-width: 772px) {
+  #myVideo{
+    width: 80vw !important;
+  }
+}
+
+.w-50{
+  width: 50% !important;
+}
+@media (max-width: 1440px) {
+  .w-50{
+    width: 65% !important;
+  }
+}
+
+@media (max-width: 772px) {
+  .w-50{
+    width: 80% !important;
+  }
+}
+
 .video-container {
     width: 100%;
     height: 45vh;
     position: relative;
     overflow: hidden;
     background: rgb(255, 255, 255);
+}
+
+@media (max-width: 1440px) {
+  .video-container{
+    height: 35vh !important;
+  }
+}
+
+@media (max-width: 772px) {
+  .video-container{
+    height: 20vh !important;
+  }
 }
 
 #contenitoreFrase{
@@ -123,11 +162,26 @@ a:visited{
   }
 
   #inventario{
+    width: 50%;
     border: 1px solid black;
     position: absolute;
     bottom: 0;
     left: auto;
     right: auto;
+  }
+
+  @media (max-width: 1440px) {
+    #inventario{
+      width: 65% !important;
+      bottom: 15px;
+    }
+  }
+  
+  @media (max-width: 772px) {
+    #inventario{
+      width: 95% !important;
+      bottom: -70px;
+    }
   }
 
 //   h5{
@@ -138,13 +192,63 @@ a:visited{
     font-size: 0.5rem;
   }
 
+  #inventario>h2{
+    font-size: 1rem;
+  }
+ 
+
+  #inventario>a{
+    font-size: 1rem;
+  }
+ 
+ 
+
+  @media (max-width: 1440px) {
+    #inventario>a{
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 772px) {
+    #inventario>a{
+      font-size: 0.5rem;
+    }
+  }
+
+
   #inventario>p{
     font-size: 0.9rem;
   }
  
+ 
+
+  @media (max-width: 1440px) {
+    #inventario>p{
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 772px) {
+    #inventario>p{
+      font-size: 0.5rem;
+    }
+  }
+
   .testoServizi{
     font-size: 0.7rem;
     
+  }
+
+  @media (max-width: 1440px) {
+    .testoServizi{
+      font-size: 0.6rem;
+    }
+  }
+  
+  @media (max-width: 772px) {
+    .testoServizi{
+      font-size: 0.5rem;
+    }
   }
 
   .three-columns {
@@ -153,8 +257,24 @@ a:visited{
     column-rule: 1px solid #000;
 }
 
+
+@media (max-width: 1440px) {
+  .three-columns{
+    column-count: 2;
+  }
+}
+
+@media (max-width: 772px) {
+  .three-columns{
+    column-count: 1;
+  }
+}
+
+
+
 .shadow-box {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); /* Aggiunge un'ombra */
+  margin-bottom: 20px;
 }
 
 #arrow p {
@@ -164,4 +284,23 @@ a:visited{
 #arrow:hover p {
   visibility: visible; /* Rende visibile il testo al passaggio del mouse */
   color: #000; /* Imposta il colore del testo */
+}
+
+.imgConc{
+  width: 75%;
+}
+@media (max-width: 1440px) {
+  .imgConc{
+    width: 90%;
+  }
+}
+
+@media (max-width: 772px) {
+  .imgConc{
+    width: 100%;
+  }
+}
+
+.shadow-box>a>p{
+  font-size: 1rem;
 }

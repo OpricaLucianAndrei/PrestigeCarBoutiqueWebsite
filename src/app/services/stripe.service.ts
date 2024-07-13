@@ -13,33 +13,6 @@ export class StripeService {
 
 
 
-  // createCheckoutSession(importo: number, valuta: string, receiptEmail: string): Observable<any> {
-  //   const body = {
-  //     importo,
-  //     valuta,
-  //     receiptEmail
-  //   };
-
-
-
-  //   return this.http.post(`${this.apiUrl}/pagamenti/create-checkout-session`, body);
-  // }
-
-  // async redirectToCheckout(sessionId: string) {
-  //   const stripe = await this.stripePromise;
-
-  //   if (!stripe) {
-  //     console.error('Stripe failed to load');
-  //     return;
-  //   }
-
-  //   const result = await stripe.redirectToCheckout({ sessionId });
-  //   if (result && result.error) {
-  //     console.error('Error redirecting to checkout:', result.error.message);
-  //   }
-  // }
-
-
   async getStripe(): Promise<Stripe | null> {
     return await this.stripePromise;
   }

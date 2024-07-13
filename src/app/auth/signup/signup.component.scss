@@ -145,3 +145,45 @@ h1 {
   transition-delay: 0.4s;
   color: aliceblue;
 }
+
+
+.spinner-overlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.car-movement {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  animation: run linear infinite 8s;
+ 
+  }
+  @keyframes run {
+   0% {
+    left: 200px;
+   }
+   48% {
+     transform: rotateY(0deg); 
+   }
+   50% { 
+    left: calc(100% - 200px);
+    transform: rotateY(180deg); 
+   }
+   98% {
+    transform: rotateY(180deg); 
+   }
+   100% {
+   left: 200px;    
+   transform: rotateY(0deg);
+   }
+}

@@ -13,13 +13,14 @@ import { AutoService } from 'src/app/services/auto.service';
 export class HomeComponent implements OnInit {
   user!: AuthData | null;
   autos: Auto[] = [];
-
+  isLoading = false;
 
 
 
   constructor(private autoSrv: AutoService, private authSrv: AuthService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.isLoading=true;
     this.authSrv.user$.subscribe((user) =>
       this.user = user)
     this.fetchAutos();
@@ -39,9 +40,11 @@ export class HomeComponent implements OnInit {
     this.autoSrv.getAuto().subscribe(
       (data) => {
         this.autos = data;
+        this.isLoading=false;
         console.log('Auto loaded:', this.autos);
       },
       (error) => {
+        this.isLoading=false;
         console.error('Error fetching autos:', error);
        
       }

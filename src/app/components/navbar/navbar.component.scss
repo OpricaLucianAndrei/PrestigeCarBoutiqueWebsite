@@ -1,60 +1,17 @@
+
 nav{
+    display: flex;
+    justify-content: center;
     width: 100vw;
     background-color: white;
+    margin: 0 auto;
     font-family: 'Caviar Dreams';
     letter-spacing: 2px;
-}
-
-.overlap-group {
-    position: relative;
-    width: 167px;
-    height: 34px;
-    background-color: #14191c;
-    border-radius: 1000px;
-}
-
-.text-wrapper {
-    position: absolute;
-    top: 8px;
-    left: 39px;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 0.7rem;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-}
-
-.mask-group-wrapper {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 5px;
-    left: 7px;
-    background-color: #000000;
-    border-radius: 12px;
-    box-shadow: 0px 4px 4px #00000040;
-}
-
- .mask-group {
-    position: absolute;
-    width: 13px;
-    height: 13px;
-    top: 6px;
-    left: 5px;
-}
-
-#carup {
-    background-color: #000000;
+    z-index: 1000;
 }
 
 .navbar-dark .navbar-nav .nav-item .nav-link {
     font-size: 0.7rem;
-}
-
-
-.top-bar {
-    border-bottom: 1px solid #ffffff;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
@@ -64,19 +21,11 @@ nav{
 }
 
 
-.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+.navbar-dark .navbar-nav .nav-link.active{
     border-bottom: 2px solid;
     color: #ffffff;
 
 }
-
-
-
-
-
-
-
-
 
 a{
     font-size: larger;
@@ -106,7 +55,7 @@ a{
 }
 
 .nav-item .btn:hover {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     transition-delay: 0.5s;
 }
 
@@ -139,7 +88,7 @@ a{
     background-color: rgb(255, 0, 0);
 }
 .nav-item .btnInventory:hover{
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .nav-item .btnInventory::after{
     background-color: rgb(255, 0, 0);

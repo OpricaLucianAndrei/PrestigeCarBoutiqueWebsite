@@ -28,10 +28,15 @@ export class PagamentoComponent implements OnInit {
   clientSecret!: string;
   handler:any = null;
   selectedImageUrl: string = '';
+
+  isLoading=false;
+
+
   constructor(private route: ActivatedRoute,
     private router: Router, private autoSrv: AutoService, private http: HttpClient, private authSrv: AuthService, private modalSrv: ModalService) { }
 
   ngOnInit(): void {
+    this.isLoading=true;
     this.authSrv.getCurrentUser().subscribe(
       (user: any) => {
         this.user = user;
@@ -49,27 +54,12 @@ export class PagamentoComponent implements OnInit {
     if (id) {
       this.autoId = +id; 
       this.getCar(this.autoId);
-
+this.isLoading=false;
       this.initializeStripe();
     }
   }
 
   async initializeStripe() {
-    // const stripe = await this.stripeService.getStripe();
-    // if (!stripe) {
-    //   console.error('Stripe failed to load');
-    //   return;
-    // }
-
-    // this.elements = stripe.elements();
-    // this.card = this.elements.create('card');
-    // this.card.mount('#card-element');
-    // const token = this.getToken();
-    // try {
-    //   this.clientSecret = await this.stripeService.createPaymentIntent(this.auto.prezzo.prezzoTotale, 'EUR', token); // Cambia amount e currency secondo le tue necessità
-    // } catch (error) {
-    //   console.error('Failed to create payment intent:', error);
-    // }
     if(!window.document.getElementById('stripe-script')) {
       var s = window.document.createElement("script");
       s.id = "stripe-script";
@@ -80,8 +70,6 @@ export class PagamentoComponent implements OnInit {
           key: 'pk_test_51PP9KiC3vTlO7HpvKttP6YXkahHTb6Zw0OKVXiapgimMasbcOfMZfPpH9fj7f2rRra9t933C2tYEQAuzbmUUAslO00KNLklRqA',
           locale: 'auto',
           token: function (token: any) {
-            // You can access the token ID with `token.id`.
-            // Get the token ID to your server-side code for use.
             console.log(token)
             alert('Payment Success!!');
           }
@@ -111,13 +99,9 @@ export class PagamentoComponent implements OnInit {
       key: 'pk_test_51PP9KiC3vTlO7HpvKttP6YXkahHTb6Zw0OKVXiapgimMasbcOfMZfPpH9fj7f2rRra9t933C2tYEQAuzbmUUAslO00KNLklRqA',
       locale: 'auto',
       token:  (token: any) => {
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
-        console.log(token)
         this.processPayment(token.id, amount);
       },
       closed: () => {
-        // Optional callback when checkout window is closed
         console.log('Checkout window closed');
       }
     });
@@ -133,15 +117,16 @@ export class PagamentoComponent implements OnInit {
   
 
   processPayment(tokenId: string, amount: number) {
-    // Example: Send the token ID and amount to your backend API for payment processing
-    // You can use Angular HttpClient to make a POST request to your backend
+    this.isLoading=true;
     const payload = { amount, "currency": "EUR"};
+    
     this.http.post<any>('https://probable-harrietta-luciancodes-b4e8ebe2.koyeb.app/api/prestigecarboutique/pagamenti/payment-intent', payload)
       .subscribe(response => {
-        console.log('Payment processed successfully:', response);
+        this.isLoading=false;
         this.modalSrv.showAlert('Pagamento effettuato!!');
         this.router.navigate(['/car-details', this.autoId]);
       }, error => {
+        this.isLoading=false;
         console.error('Payment failed:', error);
         this.modalSrv.showAlert('Pagamento fallito. Controlla la console per dettagli.');
       });

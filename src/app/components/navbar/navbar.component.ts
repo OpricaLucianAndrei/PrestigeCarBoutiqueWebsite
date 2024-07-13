@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AuthData } from 'src/app/interfaces/auth-data';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,7 @@ import { AuthData } from 'src/app/interfaces/auth-data';
 })
 export class NavbarComponent {
   user!: AuthData | null;
+  isNavbarCollapsed = true;
 
   constructor(private authSrv: AuthService) { }
 

@@ -29,10 +29,12 @@ export class InventoryComponent  implements OnInit {
   autos: any[] = [];
   filteredAutos: any[] = [];
   isCollapsed = true;
+  isLoading =false;
 
   constructor(private autoService: AutoService, private authSrv: AuthService) {}
 
   ngOnInit() {
+    this.isLoading=true;
     this.authSrv.user$.subscribe((user) =>
       this.user = user)
     this.loadAutos();
@@ -52,6 +54,7 @@ export class InventoryComponent  implements OnInit {
       this.uniqueColori = [...new Set(data.map(auto => auto.specifiche.esterni.opzioniColori).flat())];
       this.uniqueCarburanti = [...new Set(data.map(auto => auto.specifiche.performance.motore.tipo))];
     });
+    this.isLoading=false;
   }
 
   onMarcaChange() {

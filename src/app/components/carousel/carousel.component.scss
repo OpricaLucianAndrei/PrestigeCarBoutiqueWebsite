@@ -16,6 +16,12 @@
   transition: transform 0.5s ease-in-out;
 }
 
+@media (max-width: 776px) {
+  .carousel-slide {
+    width: 20vw;
+  }
+}
+
 .carousel-slide img {
   width: 80%;
   border-radius: 10px;
